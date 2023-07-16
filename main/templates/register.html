@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title%}Register{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <div class="form">
+    <ul class="tab-group">
+      <li class="tab active"><a href="#signup" style="border-radius: 15px!important;margin-right:8x;">Sign Up</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="signup">
+        <h1>Register</h1>
+         <div>
+    <style>
+      h5{
+        padding-bottom: 10px;
+        color: red;
+      }
+    </style>
+    {% for message in messages %}
+    <h5>{{message}}</h5>
+    {% endfor %}
+  </div> 
+       <form method="POST" action="register">
+          {% csrf_token %}
+          <div class="top-row">
+            <div class="field-wrap">
+              <input type="text" required placeholder="username"    name ="username"/>
+            </div>
+            <div class="field-wrap">
+              <input type="email" required placeholder="email"  name ="email" />
+            </div>
+          </div>
+          <div class="field-wrap">
+            <input type="password" required placeholder="password" name="password"/>
+          </div>
+          <div class="field-wrap">
+            <input type="password" required placeholder="password" name="password2"/>
+          </div>
+          </div>
+           <button type="submit" class="button button-block">Submit</button><br>
+           <br>
+            <a href="{% url 'login' %}" class="button button-block">Go to Login</a></p>
+        </form>
+            
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{% static 'node.js' %}"></script>
+</body>
+</html>

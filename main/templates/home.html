@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Dashboard {% endblock%}</title>
+  </head>
+  <body>
+    {%for image in Images%}
+    <h1></h1>
+    <img src="{{image.image.url}}" alt="{{image.title}}" />
+    {% endfor %}
+
+    <div>
+      {%block content%}
+
+      <h1><a class="nav-link" href="logout" color="white">Logout</a></h1>
+
+      {%endblock%}
+    </div>
+  </body>
+</html>
